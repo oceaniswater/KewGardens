@@ -8,13 +8,14 @@
 import UIKit
 
 protocol ModuleBuilderProtocol {
-    func createWelcomeModule(router: RouterProtocol) -> UIViewController
+    func createMainModule(router: RouterProtocol) -> UIViewController
+    func createEmptyModule(router: RouterProtocol) -> UIViewController
 //    func createSignInModule(router: RouterProtocol) -> UIViewController
 //    func createHomeModule(router: RouterProtocol) -> UIViewController
 //    func createShopsModule(router: RouterProtocol) -> UIViewController
 //    func createCartModule(router: RouterProtocol) -> UIViewController
 //    func createProfileModule(router: RouterProtocol) -> UIViewController
-//    func createTabBarModule(router: RouterProtocol, viewControllers: [UIViewController], images: [String]) -> UITabBarController
+    func createTabBarModule(router: RouterProtocol, viewControllers: [UIViewController], images: [String]) -> UITabBarController
 
 //    func createCharactersModule(router: RouterProtocol) -> UIViewController
 //    func createShopModule(shop: Shop?, router: RouterProtocol) -> UIViewController
@@ -27,11 +28,15 @@ protocol ModuleBuilderProtocol {
 }
 
 class ModuleBuilder: ModuleBuilderProtocol {
-    
-    func createWelcomeModule(router: RouterProtocol) -> UIViewController {
+    func createMainModule(router: RouterProtocol) -> UIViewController {
         let view = MainVC()
-//        let presenter = WelcomePresenter(view: view, router: router)
-//        view.presenter = presenter
+        let viewModel = MainViewModel()
+        view.vm = viewModel
+        return view
+    }
+    
+    func createEmptyModule(router: RouterProtocol) -> UIViewController {
+        let view = EmptyVC()
         return view
     }
     
@@ -70,13 +75,13 @@ class ModuleBuilder: ModuleBuilderProtocol {
 //        return view
 //    }
 //    
-//    func createTabBarModule(router: RouterProtocol, viewControllers: [UIViewController], images: [String]) -> UITabBarController {
-//        let tabBar = TabBarViewController()
-//        let presenter = TabBarPresenter(tabBar: tabBar, router: router, viewControllers: viewControllers, images: images)
-//        tabBar.presenter = presenter
-//        return tabBar
-//        
-//    }
+    func createTabBarModule(router: RouterProtocol, viewControllers: [UIViewController], images: [String]) -> UITabBarController {
+        let tabBar = TabbarVC()
+        let vm = TabBarViewModel(tabBar: tabBar, router: router, viewControllers: viewControllers, images: images)
+        tabBar.vm = vm
+        return tabBar
+        
+    }
 //    
 //    func createShopModule(shop: Shop?, router: RouterProtocol) -> UIViewController {
 //        let view = ShopViewController()

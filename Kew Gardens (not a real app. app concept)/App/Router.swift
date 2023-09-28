@@ -13,8 +13,8 @@ protocol RouterMain {
 }
 
 protocol RouterProtocol: RouterMain {
-//    func initialViewController() -> UITabBarController?
     func initialViewController()
+    func mainViewController()
 //    func signInViewController()
 //    func homeViewController()
 //    func tabBarController()
@@ -29,7 +29,6 @@ protocol RouterProtocol: RouterMain {
 }
 
 class Router: RouterProtocol {
-    
     var navigationController: UINavigationController?
     var moduleBuilder: ModuleBuilderProtocol?
 
@@ -39,10 +38,17 @@ class Router: RouterProtocol {
         self.navigationController = navigationController
     }
     
-    func initialViewController() {
+    func mainViewController() {
         guard let navigationController = navigationController else { return }
-        guard let welcomeVC = self.moduleBuilder?.createWelcomeModule(router: self) else { return }
+        guard let welcomeVC = self.moduleBuilder?.createMainModule(router: self) else { return }
         navigationController.viewControllers = [welcomeVC]
+        
+    }
+    
+    func emptyViewController() {
+        guard let navigationController = navigationController else { return }
+        guard let emptyVC = self.moduleBuilder?.createEmptyModule(router: self) else { return }
+        navigationController.viewControllers = [emptyVC]
         
     }
     
@@ -85,21 +91,19 @@ class Router: RouterProtocol {
 //
 //            return tabBarController
 //    }
-    
-    // MARK: - Characters - Character Detail
-//    func tabBarController() {
-//        if let navigationController = navigationController {
-//            guard let homeViewController = self.moduleBuilder?.createHomeModule(router: self),
-//                  let shopsViewController = self.moduleBuilder?.createShopsModule(router: self),
-//                  let cartViewController = self.moduleBuilder?.createCartModule(router: self),
-//                  let profileViewController = self.moduleBuilder?.createProfileModule(router: self),
-//                  let tabBarController = self.moduleBuilder?.createTabBarModule(router: self, viewControllers: [homeViewController, shopsViewController, cartViewController, profileViewController], images: ["house", "building.2", "cart", "person.crop.circle.dashed"]) else {return}
-//            DispatchQueue.main.async {
-//                navigationController.pushViewController(tabBarController, animated: true)
-//            }
-//
-//        }
-//    }
+    func initialViewController() {
+        if let navigationController = navigationController {
+            guard let mainViewController = self.moduleBuilder?.createMainModule(router: self),
+                  let shopsViewController = self.moduleBuilder?.createEmptyModule(router: self),
+                  let cartViewController = self.moduleBuilder?.createEmptyModule(router: self),
+                  let profileViewController = self.moduleBuilder?.createEmptyModule(router: self),
+                  let tabBarController = self.moduleBuilder?.createTabBarModule(router: self, viewControllers: [mainViewController, shopsViewController, cartViewController, profileViewController], images: ["house", "building.2", "cart", "person.crop.circle.dashed"]) else {return}
+            DispatchQueue.main.async {
+                navigationController.pushViewController(tabBarController, animated: true)
+            }
+
+        }
+    }
     
 //    func showCharacterDetails(character: Character?) {
 //        if let characterNC = characterNC {
