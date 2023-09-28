@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		86B19C1D2AC5CEFB00E941FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B19C1C2AC5CEFB00E941FA /* AppDelegate.swift */; };
 		86B19C1F2AC5CEFB00E941FA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B19C1E2AC5CEFB00E941FA /* SceneDelegate.swift */; };
-		86B19C212AC5CEFB00E941FA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B19C202AC5CEFB00E941FA /* ViewController.swift */; };
-		86B19C242AC5CEFB00E941FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86B19C222AC5CEFB00E941FA /* Main.storyboard */; };
+		86B19C212AC5CEFB00E941FA /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B19C202AC5CEFB00E941FA /* MainVC.swift */; };
 		86B19C262AC5CEFC00E941FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86B19C252AC5CEFC00E941FA /* Assets.xcassets */; };
 		86B19C292AC5CEFC00E941FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86B19C272AC5CEFC00E941FA /* LaunchScreen.storyboard */; };
+		86B19C322AC5D02F00E941FA /* ModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B19C312AC5D02F00E941FA /* ModuleBuilder.swift */; };
+		86B19C342AC5D04900E941FA /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B19C332AC5D04900E941FA /* Router.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		86B19C192AC5CEFB00E941FA /* Kew Gardens (not a real app. app concept).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kew Gardens (not a real app. app concept).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		86B19C1C2AC5CEFB00E941FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86B19C1E2AC5CEFB00E941FA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		86B19C202AC5CEFB00E941FA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		86B19C232AC5CEFB00E941FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		86B19C202AC5CEFB00E941FA /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		86B19C252AC5CEFC00E941FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		86B19C282AC5CEFC00E941FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		86B19C2A2AC5CEFC00E941FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		86B19C312AC5D02F00E941FA /* ModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilder.swift; sourceTree = "<group>"; };
+		86B19C332AC5D04900E941FA /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +58,32 @@
 		86B19C1B2AC5CEFB00E941FA /* Kew Gardens (not a real app. app concept) */ = {
 			isa = PBXGroup;
 			children = (
-				86B19C1C2AC5CEFB00E941FA /* AppDelegate.swift */,
-				86B19C1E2AC5CEFB00E941FA /* SceneDelegate.swift */,
-				86B19C202AC5CEFB00E941FA /* ViewController.swift */,
-				86B19C222AC5CEFB00E941FA /* Main.storyboard */,
+				86B19C352AC5D1E900E941FA /* Services */,
+				86B19C302AC5D01A00E941FA /* App */,
+				86B19C202AC5CEFB00E941FA /* MainVC.swift */,
 				86B19C252AC5CEFC00E941FA /* Assets.xcassets */,
 				86B19C272AC5CEFC00E941FA /* LaunchScreen.storyboard */,
 				86B19C2A2AC5CEFC00E941FA /* Info.plist */,
 			);
 			path = "Kew Gardens (not a real app. app concept)";
+			sourceTree = "<group>";
+		};
+		86B19C302AC5D01A00E941FA /* App */ = {
+			isa = PBXGroup;
+			children = (
+				86B19C1C2AC5CEFB00E941FA /* AppDelegate.swift */,
+				86B19C1E2AC5CEFB00E941FA /* SceneDelegate.swift */,
+				86B19C312AC5D02F00E941FA /* ModuleBuilder.swift */,
+				86B19C332AC5D04900E941FA /* Router.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		86B19C352AC5D1E900E941FA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +146,6 @@
 			files = (
 				86B19C292AC5CEFC00E941FA /* LaunchScreen.storyboard in Resources */,
 				86B19C262AC5CEFC00E941FA /* Assets.xcassets in Resources */,
-				86B19C242AC5CEFB00E941FA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +156,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86B19C212AC5CEFB00E941FA /* ViewController.swift in Sources */,
+				86B19C212AC5CEFB00E941FA /* MainVC.swift in Sources */,
 				86B19C1D2AC5CEFB00E941FA /* AppDelegate.swift in Sources */,
+				86B19C342AC5D04900E941FA /* Router.swift in Sources */,
 				86B19C1F2AC5CEFB00E941FA /* SceneDelegate.swift in Sources */,
+				86B19C322AC5D02F00E941FA /* ModuleBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		86B19C222AC5CEFB00E941FA /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				86B19C232AC5CEFB00E941FA /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		86B19C272AC5CEFC00E941FA /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -297,7 +309,6 @@
 				INFOPLIST_FILE = "Kew Gardens (not a real app. app concept)/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -325,7 +336,6 @@
 				INFOPLIST_FILE = "Kew Gardens (not a real app. app concept)/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
