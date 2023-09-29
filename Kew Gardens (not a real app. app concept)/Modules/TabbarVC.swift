@@ -38,22 +38,22 @@ class TabbarVC: UITabBarController {
     }
     
     // for adopt tab bar color scheme for dark/light mode
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-        if #available(iOS 13.0, *) {
-            if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
-//                let color = K.Design.cellBackgroundColor ?? .white
-                let color = UIColor.buttonColour
-                let roundLayer = self.tabBar.layer.sublayers?.first(where: { $0 is CAShapeLayer }) as? CAShapeLayer
-                roundLayer?.fillColor = color.cgColor
-                
-//                roundLayer?.strokeColor = K.Design.cellBoundColor?.cgColor
-                roundLayer?.strokeColor = UIColor.white.cgColor
-                roundLayer?.lineWidth = 2
-                
-            }
-        }
-    }
+//    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+//        super.traitCollectionDidChange(previousTraitCollection)
+//        if #available(iOS 13.0, *) {
+//            if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
+////                let color = K.Design.cellBackgroundColor ?? .white
+//                let color = UIColor.buttonColour
+//                let roundLayer = self.tabBar.layer.sublayers?.first(where: { $0 is CAShapeLayer }) as? CAShapeLayer
+//                roundLayer?.fillColor = color.cgColor
+//                
+////                roundLayer?.strokeColor = K.Design.cellBoundColor?.cgColor
+//                roundLayer?.strokeColor = UIColor.white.cgColor
+//                roundLayer?.lineWidth = 2
+//                
+//            }
+//        }
+//    }
     
     func addTabbarIndicatorView(index: Int, isFirstTime: Bool = false){
             guard let tabView = tabBar.items?[index].value(forKey: "view") as? UIView else {
@@ -73,12 +73,7 @@ class TabbarVC: UITabBarController {
         
         tabBar.itemWidth = width / 5
         tabBar.itemPositioning = .centered
-        tabBar.itemSpacing = self.spacing
-        
-//        tabBar.isTranslucent = true
-        
-
-        
+        tabBar.itemSpacing = spacing
         
         tabBar.backgroundColor = UIColor.buttonColour
         tabBar.tintColor = UIColor.selectedButtonColour // Set color of selected elements

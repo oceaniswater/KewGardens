@@ -10,7 +10,7 @@ import UIKit
 protocol ModuleBuilderProtocol {
     func createMainModule(router: RouterProtocol) -> UIViewController
     func createEmptyModule(router: RouterProtocol) -> UIViewController
-//    func createSignInModule(router: RouterProtocol) -> UIViewController
+    func createTicketModule(router: RouterProtocol) -> UIViewController
 //    func createHomeModule(router: RouterProtocol) -> UIViewController
 //    func createShopsModule(router: RouterProtocol) -> UIViewController
 //    func createCartModule(router: RouterProtocol) -> UIViewController
@@ -40,12 +40,12 @@ class ModuleBuilder: ModuleBuilderProtocol {
         return view
     }
     
-//    func createSignInModule(router: RouterProtocol) -> UIViewController {
-//        let view = SignInViewController()
-//        let presenter = SignInPresenter(view: view, router: router)
-//        view.presenter = presenter
-//        return view
-//    }
+    func createTicketModule(router: RouterProtocol) -> UIViewController {
+        let view = TicketVC()
+        let vm = TicketViewModel(router: router)
+        view.vm = vm
+        return view
+    }
 //    
 //    func createHomeModule(router: RouterProtocol) -> UIViewController {
 //        let view = HomeViewController()
@@ -56,7 +56,7 @@ class ModuleBuilder: ModuleBuilderProtocol {
 //    
 //    func createShopsModule(router: RouterProtocol) -> UIViewController {
 //        let view = ShopsViewController()
-//        let presenter = ShopsPresenter(view: view, router: router)
+//        let presenter = TicketViewModel(view: view, router: router)
 //        view.presenter = presenter
 //        return view
 //    }

@@ -15,7 +15,7 @@ protocol RouterMain {
 protocol RouterProtocol: RouterMain {
     func initialViewController()
     func mainViewController()
-//    func signInViewController()
+    func ticketVC()
 //    func homeViewController()
 //    func tabBarController()
 //    func shopViewController(shop: Shop?)
@@ -52,12 +52,12 @@ class Router: RouterProtocol {
         
     }
     
-//    func signInViewController() {
-//        guard let navigationController = navigationController else { return }
-//        guard let signInVC = self.moduleBuilder?.createSignInModule(router: self) else { return }
-//        navigationController.pushViewController(signInVC, animated: true)
-//        
-//    }
+    func ticketVC() {
+        guard let navigationController = navigationController else { return }
+        guard let ticketVC = self.moduleBuilder?.createTicketModule(router: self) else { return }
+        navigationController.viewControllers = [ticketVC]
+        
+    }
 //    
 //    func homeViewController() {
 //        guard let navigationController = navigationController else { return }
@@ -94,10 +94,10 @@ class Router: RouterProtocol {
     func initialViewController() {
         if let navigationController = navigationController {
             guard let mainViewController = self.moduleBuilder?.createMainModule(router: self),
-                  let shopsViewController = self.moduleBuilder?.createEmptyModule(router: self),
+                  let ticketVC = self.moduleBuilder?.createTicketModule(router: self),
                   let cartViewController = self.moduleBuilder?.createEmptyModule(router: self),
                   let profileViewController = self.moduleBuilder?.createEmptyModule(router: self),
-                  let tabBarController = self.moduleBuilder?.createTabBarModule(router: self, viewControllers: [mainViewController, shopsViewController, cartViewController, profileViewController], images: ["house", "building.2", "cart", "person.crop.circle.dashed"]) else {return}
+                  let tabBarController = self.moduleBuilder?.createTabBarModule(router: self, viewControllers: [mainViewController, ticketVC, cartViewController, profileViewController], images: ["house", "building.2", "cart", "person.crop.circle.dashed"]) else {return}
             DispatchQueue.main.async {
                 navigationController.pushViewController(tabBarController, animated: true)
             }
