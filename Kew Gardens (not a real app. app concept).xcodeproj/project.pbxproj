@@ -25,6 +25,10 @@
 		86B19C4C2AC6ED8700E941FA /* TicketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B19C4B2AC6ED8700E941FA /* TicketModel.swift */; };
 		86B19C4E2AC6F33F00E941FA /* TicketVC+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B19C4D2AC6F33F00E941FA /* TicketVC+CollectionView.swift */; };
 		86B19C502AC6F3C400E941FA /* TicketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B19C4F2AC6F3C400E941FA /* TicketViewModel.swift */; };
+		86B19C522AC9BBE200E941FA /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B19C512AC9BBE200E941FA /* ApiManager.swift */; };
+		86B19C552AC9C4E200E941FA /* QuotesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B19C542AC9C4E200E941FA /* QuotesVC.swift */; };
+		86B19C572AC9C61000E941FA /* QuotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B19C562AC9C61000E941FA /* QuotesViewModel.swift */; };
+		86F3C9792ACDDC9A0066CD2E /* CustomLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F3C9782ACDDC9A0066CD2E /* CustomLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +51,10 @@
 		86B19C4B2AC6ED8700E941FA /* TicketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketModel.swift; sourceTree = "<group>"; };
 		86B19C4D2AC6F33F00E941FA /* TicketVC+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TicketVC+CollectionView.swift"; sourceTree = "<group>"; };
 		86B19C4F2AC6F3C400E941FA /* TicketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketViewModel.swift; sourceTree = "<group>"; };
+		86B19C512AC9BBE200E941FA /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
+		86B19C542AC9C4E200E941FA /* QuotesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesVC.swift; sourceTree = "<group>"; };
+		86B19C562AC9C61000E941FA /* QuotesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesViewModel.swift; sourceTree = "<group>"; };
+		86F3C9782ACDDC9A0066CD2E /* CustomLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +88,7 @@
 		86B19C1B2AC5CEFB00E941FA /* Kew Gardens (not a real app. app concept) */ = {
 			isa = PBXGroup;
 			children = (
+				86F3C9772ACDDC750066CD2E /* Layout */,
 				86B19C392AC5D57F00E941FA /* Modules */,
 				86B19C352AC5D1E900E941FA /* Services */,
 				86B19C302AC5D01A00E941FA /* App */,
@@ -104,6 +113,7 @@
 		86B19C352AC5D1E900E941FA /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				86B19C512AC9BBE200E941FA /* ApiManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -111,6 +121,7 @@
 		86B19C392AC5D57F00E941FA /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				86B19C532AC9C49A00E941FA /* Quotes */,
 				86B19C462AC6EAD600E941FA /* Temp */,
 				86B19C432AC6E82D00E941FA /* Ticket */,
 				86B19C3A2AC5D58F00E941FA /* Main */,
@@ -148,6 +159,23 @@
 				86B19C472AC6EAF500E941FA /* MockData.swift */,
 			);
 			path = Temp;
+			sourceTree = "<group>";
+		};
+		86B19C532AC9C49A00E941FA /* Quotes */ = {
+			isa = PBXGroup;
+			children = (
+				86B19C542AC9C4E200E941FA /* QuotesVC.swift */,
+				86B19C562AC9C61000E941FA /* QuotesViewModel.swift */,
+			);
+			path = Quotes;
+			sourceTree = "<group>";
+		};
+		86F3C9772ACDDC750066CD2E /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				86F3C9782ACDDC9A0066CD2E /* CustomLayout.swift */,
+			);
+			path = Layout;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,11 +254,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86B19C522AC9BBE200E941FA /* ApiManager.swift in Sources */,
+				86B19C572AC9C61000E941FA /* QuotesViewModel.swift in Sources */,
 				86B19C452AC6E87900E941FA /* TicketVC.swift in Sources */,
 				86B19C502AC6F3C400E941FA /* TicketViewModel.swift in Sources */,
+				86B19C552AC9C4E200E941FA /* QuotesVC.swift in Sources */,
 				86B19C402AC5D93700E941FA /* TabbarViewModel.swift in Sources */,
 				86B19C212AC5CEFB00E941FA /* MainVC.swift in Sources */,
 				86B19C4A2AC6ECD600E941FA /* TicketCell.swift in Sources */,
+				86F3C9792ACDDC9A0066CD2E /* CustomLayout.swift in Sources */,
 				86B19C1D2AC5CEFB00E941FA /* AppDelegate.swift in Sources */,
 				86B19C3E2AC5D84D00E941FA /* TabbarVC.swift in Sources */,
 				86B19C422AC5DCC200E941FA /* EmptyVC.swift in Sources */,

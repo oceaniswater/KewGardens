@@ -12,18 +12,39 @@ class QuotesVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
+// MARK: - Setup View
+private extension QuotesVC {
+    func setupView() {
+        view.backgroundColor = UIColor.appBackground
+        
+        addSubview()
+        setupLayout()
+        
+    }
+}
+
+// MARK: - Setting
+private extension QuotesVC {
+    func addSubview() {
+        
+    }
+}
+
+// MARK: - Setup Layout
+private extension QuotesVC {
+    func setupLayout() {
+            
+    }
+}
+
+//// MARK: - QuotesViewProtocol
+//extension QuotesVC: QuotesViewProtocol {
+//    func success() {
+//        DispatchQueue.main.async {
+//            self.reloadColectionView()
+//        }
+//    }
+//}
