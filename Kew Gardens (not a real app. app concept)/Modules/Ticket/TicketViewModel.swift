@@ -26,7 +26,7 @@ protocol TicketViewModelProtocol: AnyObject {
     
 }
 
-class TicketViewModel: TicketViewModelProtocol {
+final class TicketViewModel: TicketViewModelProtocol {
     weak var view: TicketViewProtocol?
     var router: RouterProtocol?
     

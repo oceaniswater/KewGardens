@@ -28,29 +28,29 @@ class TicketCell: UICollectionViewCell {
     }
     
     // MARK: - Private properties
-    private let shopImageView: UIImageView = {
+    private let qrImageView: UIImageView = {
         let image = UIImageView()
         return image
     }()
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        shopImageView.image = nil
+        qrImageView.image = nil
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
-//        shopImageView.layer.cornerRadius = 15
-        shopImageView.clipsToBounds = true
-        layer.cornerRadius = 15
+//        qrImageView.layer.cornerRadius = 15
+        qrImageView.clipsToBounds = true
+
     }
     
     // MARK: - Public methods
     func configure(with ticket: TicketModel) {
         let QRimage = generateQRCode(from: ticket.info)
         guard let image = QRimage else { return }
-        shopImageView.image = image
+        qrImageView.image = image
     }
     
     // MARK: - Private methods (move to vm)
@@ -74,6 +74,15 @@ class TicketCell: UICollectionViewCell {
 private extension TicketCell {
     func setupCell() {
         backgroundColor = .white
+        layer.cornerRadius = 15
+        layer.shadowPath = UIBezierPath(rect: bounds).cgPath
+        layer.shouldRasterize = true
+        layer.rasterizationScale = UIScreen.main.scale
+        
+//        layer.shadowColor = UIColor.black.cgColor
+//        layer.shadowOpacity = 0.7
+//        layer.shadowOffset = .zero
+//        layer.shadowRadius = 3
         
         addSubview()
         setupLayout()
@@ -85,7 +94,7 @@ private extension TicketCell {
 private extension TicketCell {
     func addSubview() {
         
-        addSubview(shopImageView)
+        addSubview(qrImageView)
         
 //        descriptionVStack = UIStackView(arrangedSubviews: [nameLabel, locationLabel])
 //        descriptionVStack.axis = .vertical
@@ -100,9 +109,10 @@ private extension TicketCell {
 // MARK: - Setup Layout
 private extension TicketCell {
     func setupLayout() {
-        shopImageView.snp.makeConstraints { make in
+        qrImageView.snp.makeConstraints { make in
             make.height.width.equalTo(200)
-            make.top.leading.trailing.equalToSuperview().inset(15)
+            make.bottom.equalToSuperview().inset(70)
+            make.centerX.equalToSuperview()
         }
         
 //        descriptionVStack.snp.makeConstraints { make in
@@ -117,5 +127,9 @@ private extension TicketCell {
 #Preview {
     let ticket = TicketCell()
     ticket.configure(with: TicketModel(info: "100310160100272757"))
+    ticket.snp.makeConstraints { make in
+        make.height.equalTo(500)
+        make.width.equalTo(300)
+    }
     return ticket
 }

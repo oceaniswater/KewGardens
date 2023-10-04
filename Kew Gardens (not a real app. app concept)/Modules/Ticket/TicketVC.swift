@@ -8,6 +8,9 @@
 import UIKit
 import SnapKit
 
+let screenWidth = UIScreen.main.bounds.size.width
+let screenHeight = UIScreen.main.bounds.size.height
+
 class TicketVC: UIViewController {
     
     var vm: TicketViewModelProtocol!
@@ -29,13 +32,17 @@ class TicketVC: UIViewController {
         return label
     }()
     
-    let ticketsCollection: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collection.backgroundColor = .clear
-        return collection
-    }()
+    var layout = CustomLayout()
+    
+    var ticketsCollection = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    
+    var itemW: CGFloat {
+        return screenWidth * 0.8
+    }
+    
+    var itemH: CGFloat {
+        return itemW * 1.7
+    }
     
     
 }
@@ -68,10 +75,10 @@ private extension TicketVC {
         }
         
         ticketsCollection.snp.makeConstraints { make in
-            make.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
+            make.leading.equalTo(view.safeAreaLayoutGuide).inset(20)
+            make.trailing.equalToSuperview()
             make.top.equalTo(titleLabel.snp.bottom).offset(30)
-            make.height.equalTo(230)
-//            make.bottom.equalTo(view.safeAreaLayoutGuide)
+            make.bottom.equalToSuperview().inset(100)
         }
         
     }
